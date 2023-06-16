@@ -32,8 +32,9 @@ But first, we need to review some `concepts`.  
         *   \[500-599\] - Server error responses
 *   A `swagger` is a set of open-source software tools for designing, building, documenting, and using the `REST` API.
 *   `REST` is a limited standard for architecture.
+*   `URL` is an address locator for network resources.
 
-If you do not belong to a company, you can use open-source `collections`. _For this tour guide, we will use a_ [_free-api_](https://catboys.com/api)_._
+If you do not belong to a company, you can use open-source `collections`.
 
 ### Tour guide on Postman 🚀
 
@@ -57,4 +58,64 @@ If you do not belong to a company, you can use open-source `collections`. _For t
             *   Environments → Is a set of variables that are stored as key-value pairs and you can change them according to the paths.
     *   If you are on the collection view, you will see the `collection name` and the distribution of endpoints.
         *   As a new user, you can click on the `+` button:
-            *   New Collection name will be displayed
+            *   “New Collection” will be displayed.
+            *   You can add requests by clicking on the down arrow and selecting `Add a request` - next to the name. (remember to take into consideration the HTTP Request methods)
+                *   By default, the name will be “New Request” and the method `GET` is selected in green. If you want to change the method, click on the down arrow - next to the `GET`.
+            *   You need to set an `URL`.
+            *   Also, according to the type of endpoint, you should review the `params`, `auth`, `headers`, and `body`. Those elements are important in the request.
+                *   The `params` are related to `query parameters`. Usually, those are attached to the end of a URL.
+                *   The `auth` is related to access authorization. There are different types and you need to be sure which type is used for each endpoint.
+                    *   Most common types → inherit auth from parent, no auth, API Key, Bearer Token, and Basic auth.
+                *   A `header` is a part of the data packet that carries metadata or other information necessary for processing the main data. Usually, you don't need to set up something, populated according to the body and the request.
+                *   The `body` is where the data should be.
+                    *   Most common formats →  none, form-data, and raw.
+            *   On the right side, you have the section of the `response`. 
+                *   Once you send a request, you will see the information (HTTP status code, body, time of execution, response size, etc.)
+    *   If you are on the environment view, you will see the `globals` section and `create an environment.`
+        *   If you click on `globals`, a new tab is displayed. Here you can set up a `variable`, `type`, `initial value`, and `current value`.
+            *   The `variable` is a data element that can vary according to the `value`.
+            *   The `type` of variable is according to the secret or public concept. Some values can be displayed `***` for the security process.
+            *   The `initial value` and the `current value` could be the same. The `current value` is the most important, especially when you want to edit new values.
+
+### Checking free API documentation 🤫
+
+For this section, we will review the `catboys` documentation before playing on Postman.
+
+*   Open the link below [_free-api_](https://catboys.com/api)_._
+*   Identify the version `<v2.0.0>`
+    *   v\[major\].\[minor\].\[patch\]
+        *   When we update the `<major>` it means we made a backward compatibility-breaking change, so the API is no longer fully compatible with things that were built relying on it before. 
+        *   When we add new endpoints to the API, we should update the `<minor>`version.
+        *   When we fix bugs or update the response in the API, we should update the `<patch>` version.
+*   Identify the Base URL `<https://api.catboys.com>`
+    *   This means that you can set a variable called `base_url` and the different parameters according to the endpoint.
+*   Identify how many endpoints are displayed `<7 endpoints>`
+*   Identify how many HTTP methods are used on each endpoint `<only use GET method>`
+*   Identify the HTTP status code `<as a GET method, the response should be 200>` 
+*   Identify the body response `<when you expand the endpoints, you will be able to review the different responses>`
+
+#### Now is time to do an analysis of the first endpoint:
+
+The first endpoint `<ping>` and it's using the `GET` method.
+
+The URL should be a combination of the `base_url` and the specific `route` = `<https://api.catboys.com/ping>`
+
+There is no access authentication required, so you should set it as `No Auth`
+
+There is no-body request, so you should set it as `None`
+
+The HTTP status code should be `200`.
+
+The body response format is `JSON`. - starts and ends with `{}`
+
+```plaintext
+{
+"catboy_says": "rawr",
+"error": "none"
+"code": 200
+}
+```
+
+> ### Try to do the same with the other endpoints to improve your sense of analysis. Think about the response and body structure. Check if it is possible to define the value of keys for JSON formats. Identify happy paths and try to imagine unhappy paths. Being a manual tester means being creative!
+
+### Migrating `catboys` to Postman
