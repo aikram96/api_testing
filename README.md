@@ -77,7 +77,7 @@ If you do not belong to a company, you can use open-source `collections`.
             *   The `type` of variable is according to the secret or public concept. Some values can be displayed `***` for the security process.
             *   The `initial value` and the `current value` could be the same. The `current value` is the most important, especially when you want to edit new values.
 
-### Checking free API documentation 🤫
+### Checking free API documentation ⭐
 
 For this section, we will review the `catboys` documentation before playing on Postman.
 
@@ -94,7 +94,7 @@ For this section, we will review the `catboys` documentation before playing on P
 *   Identify the HTTP status code `<as a GET method, the response should be 200>` 
 *   Identify the body response `<when you expand the endpoints, you will be able to review the different responses>`
 
-#### Now is time to do an analysis of the first endpoint:
+#### Now is time to do an analysis of the first endpoint 🔍
 
 The first endpoint `<ping>` and it's using the `GET` method.
 
@@ -118,4 +118,40 @@ The body response format is `JSON`. - starts and ends with `{}`
 
 > ### Try to do the same with the other endpoints to improve your sense of analysis. Think about the response and body structure. Check if it is possible to define the value of keys for JSON formats. Identify happy paths and try to imagine unhappy paths. Being a manual tester means being creative!
 
-### Migrating `catboys` to Postman
+### Migrating `catboys` to Postman 🐱
+
+*   Open your Postman application
+*   Create a New Collection → `CatBoys`
+*   Add a new request → `ping`
+*   Create an environment → `demo`
+*   Set the base\_url → [`https://api.catboys.com`](https://api.catboys.com)
+*   Set the environment → `demo`
+*   Set the URL → `{{base_url}}/ping`
+*   Set your Auth → `No Auth`
+*   Set your Body → `none`
+*   Click on `Send` or press on your keyboard `Control + ENTER`.
+
+Make sure your Postman configuration looks like the following screenshot:
+
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/2320fbea6d01f10ab43c750b3a3c6535bd9b1a1b8cb849c0.png)
+
+The response should look like this:
+
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/60ea053a92d3734e3dc74599ed54553e554a550662054902.png)
+
+> ### **Now is your time to migrate all the CatBoys endpoints on Postman!**
+
+### Performing `manual testing` on Postman 🐾
+
+For this section, we will use the `<ping>` endpoint and different `scenarios`. But first, some definitions 
+
+*   **Test Case → defines the steps/actions required to verify the efficacy of a “change”. “How to test?”**
+*   **Test Scenario → Defines the actual function/feature/to be tested. "What to test?**
+*   **Happy path → testing technique to know how the product works under perfect conditions**
+*   **Unhappy path → testing technique to know what happens when things go wrong**
+
+> ### If you are new to Manual Testing, please review the following repo \<manual-testing-begin>.
+
+*   We need to identify the happy path → Usually if the API has documentation, the happy path is displayed on it.
+
+**If you want to increase your skills, please review the link** [public\_apis](https://github.com/public-apis/public-apis) **to practice with more APIs. Make sure to follow all the steps displayed on this repo.**
