@@ -76,6 +76,7 @@ If you do not belong to a company, you can use open-source `collections`.
             *   The `variable` is a data element that can vary according to the `value`.
             *   The `type` of variable is according to the secret or public concept. Some values can be displayed `***` for the security process.
             *   The `initial value` and the `current value` could be the same. The `current value` is the most important, especially when you want to edit new values.
+        *   If you click on `Create an Environment`, a new tab is displayed. Here you can set up the name of your environment. Like the global tab, you can add, edit and delete variables according to your preference.
 
 ### Checking free API documentation ⭐
 
