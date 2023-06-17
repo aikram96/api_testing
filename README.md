@@ -23,7 +23,7 @@ But first, we need to review some `concepts`.  
         *   **PATCH** - modify information
         *   **DELETE** - delete information
         *   Others - **HEAD**, **OPTIONS**, **TRACE**, etc.
-*   `HTTP Status code` indicates whether a specific `HTTP request` has been successfully completed.
+*   `HTTP Status code` indicates whether a specific `HTTP request` has been completed.
     *   List of `HTTP Status codes`:
         *   \[100-199\] - Informational responses
         *   \[200-299\] - Successful responses
@@ -94,7 +94,7 @@ For this section, we will review the `catboys` documentation before playing on P
 *   Identify the HTTP status code `<as a GET method, the response should be 200>` 
 *   Identify the body response `<when you expand the endpoints, you will be able to review the different responses>`
 
-#### Now is time to do an analysis of the first endpoint 🔍
+#### Now is time to analyze the first endpoint 🔍
 
 The first endpoint `<ping>` and it's using the `GET` method.
 
@@ -153,5 +153,27 @@ For this section, we will use the `<ping>` endpoint and different `scenarios`. B
 > ### If you are new to Manual Testing, please review the following repo \<manual-testing-begin>.
 
 *   We need to identify the happy path → Usually if the API has documentation, the happy path is displayed on it.
+    *   The response for a `GET` method should be `200`. ← happy path HTTP status code response
+    *   The body response should be a `JSON` ← happy path body response format
+    *   The value `catboy_says` should be a `string` ← happy path JSON value format
+    *   The value `catboy_says` should be `“rawr”` ← happy path JSON value 
+    *   The value `error` should be `“none”` ← happy path JSON value 
+    *   The value `code` should be an `int` ← happy path JSON value format
+    *   The value `code` should be 200 ← happy path JSON value 
+*   We need to identify the unhappy paths:
+    *   **What happens if** the URL was not correct? `<i.e. add a “**s**” at the end>.`
+        *   URL = `{{base_url}}/pings`
+            *   The HTTP status code should be 404
+            *   The value for the `message` should be a `string` 
+            *   The value for the `message` should be `“Incorrect endpoint. Please use https://api.catboys.com/endpoints for the full list of endpoints and https://catboys.com/api for our API documentation.”` 
+            *   The value `error` should be `“Not found”` 
+            *   The value `code` should be an `int` 
+            *   The value `code` should be 404 
+
+You can review the following screenshot:
+
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/12894e430087b1a2974908df1145639e0780e5b4d853ce13.png)
+
+> ### **Now is your time to review the happy and unhappy paths for the rest of the endpoints you migrated to Postman!**
 
 **If you want to increase your skills, please review the link** [public\_apis](https://github.com/public-apis/public-apis) **to practice with more APIs. Make sure to follow all the steps displayed on this repo.**
